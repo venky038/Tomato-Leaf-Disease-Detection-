@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="static/css/index.css">
+    </head>
+    <body background="https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-63452.jpg?w=1060&t=st=1671987997~exp=1671988597~hmac=6f0caeec5c82d3d43b96472ab9902b03282b05033634de7cc436aa9f81b1265f">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar" href="index.html">
+            <h2>Tomato Leaf Check
+            </h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link active text-dark" href="{{url_for('index')}}">
+                        Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <a class="nav-link text-dark" href="{{url_for('checkimagequality')}}">Check Image Quality</a>
+                    <a class="nav-link text-dark" href="{{url_for('aboutus')}}">About Us</a>
+                </div>
+            </div>
+        </nav>
+        <div class="Home-container">
+            <h1>
+                Tomato Leaf Check
+            </h1>
+            <h5>
+                Tomato Leaf Disease Detection
+            </h5>
+            <p>
+                Farmers face loss in crop production due to many reasons, One of the major problems for the above issue are crop diseases. Early detection of <br>the disease can help control and prevent more damage to the crop yield but finding the current disease and providing best remedies requires<br> expert opinion or prior knowledge in order to control the disease, this is extremely time consuming and expensive. The objective of this project is<br> to identify the type of disease present on it and suggest a diagnosis to it. In order to solve the above issue we are developing a machine learning <br>model and using image processing to identify disease and suggest its diagnosis. The remedies provide appropriate information regarding <br>the pesticide and insecticide to be used in order to cure the disease.
+            </p>
+            <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li style="color: tomato;font-size:20px";>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+             {% if filename1 %}
+    <h3 style="color:black;">Uploaded photo</h3>
+            <div>
+            <img src="{{ url_for('display_image', filename=filename1) }}" width="400" height="500" >
+            </div>
+            {% endif %}
+            <div class="choose-file">
+                <form method="post" action="/" enctype="multipart/form-data">
+            <p>
+                <input type="file" name="file1" class="form-control" autocomplete="off" required>
+            </p>
+        <p>
+            <input type="submit" value="Submit" class="btn btn-info">
+        </p>
+    </form>
+            </div>
+        </div>
+    </body>
+</html>
