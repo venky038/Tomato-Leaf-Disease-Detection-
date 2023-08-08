@@ -1,0 +1,23 @@
+body{
+    text-align: center;
+    background-color: #d8f9ff;
+}
+.navbar h2{
+    color: black;
+}
+
+.Home-container h1{
+    padding-top: 10%;
+    color:red;
+}
+.choose-file{
+    padding-left: 35%;
+    padding-right: 35%;
+}
+.Home-container p{
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: 20px;
+    color:#000000;
+}
