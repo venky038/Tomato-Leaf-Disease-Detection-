@@ -1,0 +1,20 @@
+body{
+    text-align: center;
+    background-color: #d8f9ff;
+}
+
+.navbar h2{
+    color: black;
+}
+h3{
+    color: black;
+    padding-left: 45%;
+    padding-top: 50px;
+}
+.btn btn-info{
+    padding-left: 45%;
+}
+.choose-file{
+    padding-left: 40%;
+    padding-right: 45%;
+}
